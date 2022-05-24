@@ -1,0 +1,38 @@
+{
+    "name": "Test Service",
+    "language_codes": ["zh", "en", "jp"],
+    "en_code": "en",
+    "zh_code": "zh",
+    "i18n": {
+        "zh": {
+            "zh": "中文", 
+            "en": "Chinese"
+        },
+        "en": {
+            "zh": "英文",
+            "en": "English"
+        },
+        "jp": "Japanese",
+        "Global domain": {
+            "zh": "全局地址"
+        }
+    },
+    "support_auto": false,
+    "config": {
+        "api_keys": {
+            "name": "API Key",
+            "type": "text",
+            "default": "Hello world"
+        },
+        "api_domains": {
+            "name": "Domains",
+            "type": "list",
+            "items": [ "Global domain", "Local domain" ]
+        },
+        "api_check": {
+            "name": "Use advanced feature",
+            "type": "bool",
+            "default": false
+        }
+    }
+}
