@@ -1,4 +1,4 @@
-# Miyuki Translator (MacOS Version)
+# Miyuki Translator
 
 <p align="center">
 <img src="docs/social.png" ><br/>
@@ -20,7 +20,7 @@ An application than can translate texts from clipboard.
 This program supports extension. You can write extension of this program using native C, C++, and other languages. The other thing is 
 to implement a stanard C ABI and put the compiled `.so` or `.dylib` to `Document` folder under application folder.
 
-* <a href="docs/documentation_write_extension.md">Document and API references to writing an extension (Simpified Chinese)</a>
+* <a href="docs/documentation_write_extension.md">Document and API references for developing an extension (in Simpified Chinese)</a>
 
 ## Main Features
 
@@ -51,6 +51,4 @@ Read papers and translate when you on board!
 <img src="docs/ocr.png" alt="drawing" >
 
 -------
-&copy; 2022 Acane
-
-Licensed under AGPLv3 license
+&copy; 2020-2022 Acane

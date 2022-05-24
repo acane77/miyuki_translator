@@ -3,11 +3,9 @@
 
 本应用支持使用标准C ABI的动态链接库的插件程序。
 
-# 示例代码
+## 示例代码
 
-* 完整项目的示例代码在<a href="../examples/">`examples/`</a>目录下。
-
-* 一个包含完整功能的（即离线翻译功能）代码见`Translator/LocalModel/CTranslate2Interface`目录下的`ac_ctrans.cpp`和`ac_ctrans.h`。
+* <del>完整项目的示例代码在`examples/`目录下。</del>
 
 ## API References
 
@@ -293,6 +291,5 @@ JSON格式如下所示
 
 ------
 
-&copy; 2022 Acane
+&copy; 2020-2022 Acane
 
-Licensed under AGPLv3 license
