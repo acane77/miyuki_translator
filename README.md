@@ -51,4 +51,10 @@ Read papers and translate when you on board!
 <img src="docs/ocr.png" alt="drawing" >
 
 -------
+
+**Note**: The software will no longer be open-sourced since version v1.3.0.
+
+All codes before v1.3.0 were licensed under GPLv3 (see LICENCE document with the source code). 
+
+-------
 &copy; 2020-2022 Acane
