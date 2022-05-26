@@ -52,9 +52,11 @@ Read papers and translate when you on board!
 
 -------
 
-**Note**: The software will no longer be open-sourced since version v1.3.0.
+**Note**: The software has no longer been open-sourced since version v1.3.0.
 
-All codes before v1.3.0 were licensed under GPLv3 (see LICENCE document with the source code). 
+All codes before v1.3.0 (not included) were licensed under GPLv3 (see LICENCE document with the source code). 
+
+The authorities of code before version v1.3.0 (not included) that alreadly granted remain avaliable, but downloads of the source code of these versions will no longer provided.
 
 -------
 &copy; 2020-2022 Acane
