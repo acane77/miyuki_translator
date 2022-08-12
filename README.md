@@ -15,12 +15,12 @@ An application than can translate texts from clipboard.
 ## System Requirements
 * MacOS 11.0 Big Sur or above
 
-## Documentation for Extension
+## Documentation for Developing Extension
 
-This program supports extension. You can write extension of this program using native C, C++, and other languages. The other thing is 
-to implement a stanard C ABI and put the compiled `.so` or `.dylib` to `Document` folder under application folder.
+This program supports extension. You can develop extension for new translation provider (or other sequence-to-sequence-like functions) of this program using native C, C++, and other languages. The only thing needed is 
+to implement and export a dynamic library as a stanard C ABI, then put the compiled `.so` or `.dylib` to `Document` folder under application folder.
 
-* <a href="docs/documentation_write_extension.md">Document and API references for developing an extension (in Simpified Chinese)</a>
+* <a href="docs/documentation_write_extension.md">Document and API references for developing an extension</a> *(in Simpified Chinese)*
 
 ## Main Features
 

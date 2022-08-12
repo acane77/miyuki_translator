@@ -3,9 +3,11 @@
 
 本应用支持使用标准C ABI的动态链接库的插件程序。
 
+本仓库中存放了开发插件程序所需要的头文件和相关的动态链接库。
+
 ## 示例代码
 
-* <del>完整项目的示例代码在`examples/`目录下。</del>
+* 项目的示例代码在`examples/`目录下。
 
 ## API References
 
@@ -25,100 +27,27 @@
 
 ## 创建项目
 
-运行`tools/extension_bootstrap.sh`可创建插件的项目模板，其中包含必要的头文件和对应的C/C++实现。
+复制example目录下的文件，在src目录下的`plugin_main.cpp`改为自己的插件代码即可。
 
-使用下面的命令构建并生成一个插件。
+在example中的项目目录下，使用下面的命令构建并生成一个插件。
 ```bash
-cd tools
-./extension_bootstrap.sh
-cd extension_project  ## 项目目录
 mkdir build
 cd build
 cmake ..  
 make    ## 编译生成dylib
 ```
 
-## 一个Hello World程序
+为了更方便实现JSON读取和网络访问，还可以手动添加boost库或者json解析库等，但是注意，如果你加入了其他的dylib动态库文件，请同时编译x86_64和arm64版本，并使用lipo命令进行合并，否则在Universal平台上运行此插件会导致主程序崩溃或无法加载插件。
 
-```c++
-#include "ac_common.h"
-#include "ac_feature_core.h"
-#include <iostream>
-
-ACANE_EXTERN_C_START
-
-ac_result_t ac_init() {
-    LOGD("[external] initialized");
-    return AC_OK;
-}
-
-ac_result_t ac_deinit() {
-    LOGD("[external] de-initialized");
-    return AC_OK;
-}
-
-ac_result_t ac_do_translate(ac_json_string_t input_json, ac_json_string_t* output_json) {
-    LOGD("[external] do translate");
-    *output_json = R"sample(
-        {
-           "code": 0,
-           "message": "ok",
-           "result": "hello world from native!"
-         }
-    )sample";
-    return AC_OK;
-}
-
-ac_result_t ac_get_meta_info(ac_json_string_t* meta_json) {
-    LOGD("[external] get meta info");
-    *meta_json = R"sample(
-    {
-    "name": "Test Service",
-    "language_codes": ["zh", "en", "jp"],
-    "en_code": "en",
-    "zh_code": "zh",
-    "i18n": {
-        "zh": {
-            "en": "Chinese",
-            "zh": "中文"
-        },
-        "en": {
-            "en": "English",
-            "zh": "英语"
-        },
-        "jp": "Japanese",
-        "Use advanced feature": { "zh": "你好，世界" },
-        "Domains": { "zh": "区域" },
-        "Global domain": { "zh": "全部区域" }
-    },
-    "support_auto": false,
-    "config": {
-        "api_keys": {
-            "name": "API Key",
-            "type": "text",
-            "default": "Hello world"
-        },
-        "api_domains": {
-            "name": "Domains",
-            "type": "list",
-            "items": [ "Global domain", "Local domain" ]
-        },
-        "api_check": {
-            "name": "Use advanced feature",
-            "type": "bool",
-            "default": false
-        }
-    }
-})sample";
-    return AC_OK;
-}
-
-ACANE_EXTERN_C_END
+lipo合并命令如下
+```bash
+$ lipo -create -output libsample.dylib libsample.dylib.arm64 libsample.dylib.x86_64 
 ```
 
-实现该程序的插件，只需要实现`ac_init`，`ac_deinit`，`ac_do_translate`和`ac_get_meta_info`即可。
-
 ## 需要实现的函数说明
+
+实现该程序的插件，只需要实现`ac_init`，`ac_deinit`，`ac_do_translate`和`ac_get_meta_info`即可。
+必须包含几个名字，且不能更改函数参数类型，以及函数名称，返回值类型。并且如果你使用的是C++，务必对这几个函数使用`extern "C"`修饰，以导出C语言ABI的函数名。
 
 ### `ac_init` ：初始化插件
 
