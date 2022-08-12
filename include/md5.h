@@ -1,12 +1,5 @@
 /*! \file md5.h */
 
-//
-//  md5.h
-//  Translator
-//
-//  Created by Acane on 2022/2/8.
-//
-
 #ifndef md5_h
 #define md5_h
 

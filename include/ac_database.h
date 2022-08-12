@@ -1,9 +1,5 @@
 /*! \file ac_database.h */
 
-//
-// Created by Acane on 2021/12/31.
-//
-
 #ifndef ACANE_DATABASE_H
 #define ACANE_DATABASE_H
 
